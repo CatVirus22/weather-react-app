@@ -1,13 +1,21 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+  --main-font: "Dosis", sans-serif;
+  --body-font:
+  --primary-color: beige;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+h1 {
+  padding-top: 10px;
+  font-size: 42px;
+  color: beige;
+  font-family: var(--main-font)
+}
+
+body {
+  background-image: url('https://s3.amazonaws.com/shecodesio-production/uploads/files/000/026/252/original/5797334.jpg?1643809928');
+  background-size: cover;
+}
+
+.header {
+  padding: 0;
 }

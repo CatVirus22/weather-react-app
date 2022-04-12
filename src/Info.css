@@ -1,0 +1,71 @@
+#temp-celsius,
+#temp-fahrenheit,
+#separator {
+  font-size: 22px;
+  position: relative;
+  top: -55px;
+  font-weight: bolder;
+}
+
+#current-temp,
+#separator {
+  color: beige;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+#current-temp {
+  padding-left: 25px;
+  font-size: 100px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+#wind-speed,
+#weather-description,
+#current-hmidity,
+#current-date,
+#current-time,
+#city-info,
+#time-info {
+  color: beige;
+  font-size: 20px;
+}
+
+#wind-speed,
+#weather-description,
+#current-hmidity {
+  text-align: right;
+  padding-right: 32px;
+  margin-top: 0;
+}
+
+#forecast-list {
+  text-align: right;
+}
+
+#city-info {
+  text-transform: capitalize;
+}
+
+#weather-description::first-letter {
+  text-transform: capitalize;
+}
+
+#weather-icon {
+  padding-right: 32px;
+  padding-top: 20px;
+  padding-bottom: 16px;
+}
+
+ul {
+  margin: 0;
+}
+
+.data {
+  background: rgba(0, 0, 0, 0.4);
+}
