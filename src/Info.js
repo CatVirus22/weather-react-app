@@ -15,7 +15,10 @@ export default function Info(props) {
   }
 
   return (
-    <div class="row d-flex carousel slide" id="first-row">
+    <div
+      class="row d-flex carousel slide justify-content-center"
+      id="first-row"
+    >
       <div class="col-xl-8 data">
         <div class="carousel-inner">
           <div class="carousel-item active">

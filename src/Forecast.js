@@ -4,9 +4,9 @@ import "./Forecast.css";
 export default function Forecast() {
   return (
     <div
-      class="row d-flex carousel slide pt-4"
+      class="row d-flex carousel slide pt-4 justify-content-center"
       id="first-row"
-      data-ride="carousel"
+      data-bs-ride="carousel"
     >
       <div class="col-xl-8 forecast">
         <div class="carousel-inner">
