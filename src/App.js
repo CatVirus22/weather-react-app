@@ -18,7 +18,7 @@ export default function App() {
 
           <Search />
         </div>
-        <Info currentTemp={7} />
+        <Info defaultCity="London" />
         <Forecast />
         <Footer />
       </div>
