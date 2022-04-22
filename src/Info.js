@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Info.css";
+import Timestamp from "./Timestamp";
 import axios from "axios";
 
 export default function Info(props) {
@@ -8,12 +9,12 @@ export default function Info(props) {
 
   function fahrenheit(event) {
     event.preventDefault();
-    data((data.Mathtemp * 9) / 5 + 32);
+    setData((data.temp * 9) / 5 + 32);
   }
 
   function celsius(event) {
     event.preventDefault();
-    data(data.temp);
+    setData(data.temp);
   }
 
   function fetchInfo(response) {
@@ -25,6 +26,8 @@ export default function Info(props) {
       windspeed: Math.round(response.data.wind.speed),
       description: response.data.weather[0].description,
       icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+      date: new Date(response.data.dt * 1000),
+      city: response.data.name,
     });
 
     setLoaded(true);
@@ -53,7 +56,7 @@ export default function Info(props) {
                       onClick={celsius}
                     >
                       {" "}
-                      C°
+                      C
                     </a>
                     <span id="separator"> | </span>
                     <a
@@ -63,13 +66,12 @@ export default function Info(props) {
                       onClick={fahrenheit}
                     >
                       {" "}
-                      F°
+                      F
                     </a>
                   </div>
+                  <Timestamp date={data.date} />
                   <ul>
-                    <li id="current-date">Monday, March 28, 2022.</li>
-                    <li id="current-time">Last time updated: 17:15</li>
-                    <li id="city-info">London, United Kingdom</li>
+                    <li id="city-info">{data.city}</li>
                   </ul>
                 </div>
                 <div class="col">
@@ -90,7 +92,8 @@ export default function Info(props) {
     );
   } else {
     const apiKey = `d67292210b7875b5cf04663144f38fa9`;
-    let url = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}
+    let city = "London";
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}
     &appid=${apiKey}&units=metric`;
     axios.get(url).then(fetchInfo);
     return "Wait until information loads... Thank you.";

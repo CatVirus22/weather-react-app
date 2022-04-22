@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Search.css";
 import axios from "axios";
 
-export default function Search() {
+export default function Search(props) {
   return (
     <div class="search-bar pb-4">
       <form class="input-group rounded">
