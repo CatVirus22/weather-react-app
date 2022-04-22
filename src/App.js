@@ -9,9 +9,9 @@ import Footer from "./Footer";
 
 export default function App() {
   return (
-    <div class=" App container pt-5">
-      <div class="row d-flex justify-content-center">
-        <div class="col-sm-5 header">
+    <div className=" App container pt-5">
+      <div className="row d-flex justify-content-center">
+        <div className="col-sm-5 header">
           <div>
             <h1>Weather now</h1>
           </div>

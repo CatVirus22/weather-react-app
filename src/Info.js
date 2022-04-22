@@ -36,21 +36,21 @@ export default function Info(props) {
   if (loaded) {
     return (
       <div
-        class="row d-flex carousel slide justify-content-center"
+        className="row d-flex carousel slide justify-content-center"
         id="first-row"
       >
-        <div class="col-xl-8 data">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <div class="d-flex mb-4">
-                <div class="col">
-                  <div class="display-2">
-                    <span class="float-left" id="current-temp">
+        <div className="col-xl-8 data">
+          <div className="carousel-inner">
+            <div className="carousel-item active">
+              <div className="d-flex mb-4">
+                <div className="col">
+                  <div className="display-2">
+                    <span className="float-left" id="current-temp">
                       {data.temp}°
                     </span>
 
                     <a
-                      class="float-left"
+                      className="float-left"
                       id="temp-celsius"
                       href="/"
                       onClick={celsius}
@@ -60,7 +60,7 @@ export default function Info(props) {
                     </a>
                     <span id="separator"> | </span>
                     <a
-                      class="float-left"
+                      className="float-left"
                       id="temp-fahrenheit"
                       href="/"
                       onClick={fahrenheit}
@@ -74,7 +74,7 @@ export default function Info(props) {
                     <li id="city-info">{data.city}</li>
                   </ul>
                 </div>
-                <div class="col">
+                <div className="col">
                   <ul id="forecast-list">
                     <li id="weather-icon">
                       <img src={data.icon} alt="weather-icon" />
