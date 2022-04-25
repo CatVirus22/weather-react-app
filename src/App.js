@@ -3,8 +3,7 @@ import "./index.css";
 import "bootstrap/dist/css/bootstrap.css";
 
 import Search from "./Search";
-import Info from "./Info";
-import Forecast from "./Forecast";
+
 import Footer from "./Footer";
 
 export default function App() {
@@ -15,11 +14,8 @@ export default function App() {
           <div>
             <h1>Weather now</h1>
           </div>
-
-          <Search />
         </div>
-        <Info />
-        <Forecast />
+        <Search />
         <Footer />
       </div>
     </div>

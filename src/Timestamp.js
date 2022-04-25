@@ -1,5 +1,6 @@
 import React from "react";
 import "./Info.css";
+import "./Search";
 
 export default function dateInfo(props) {
   let weekDays = [
@@ -26,6 +27,7 @@ export default function dateInfo(props) {
     "December",
   ];
   let day = weekDays[props.date.getDay()];
+
   let month = currentMonth[props.date.getMonth()];
   let date = props.date.getDate();
   let year = props.date.getFullYear();

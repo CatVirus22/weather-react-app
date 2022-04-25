@@ -1,101 +1,56 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Info.css";
 import Timestamp from "./Timestamp";
-import axios from "axios";
 
 export default function Info(props) {
-  const [data, setData] = useState({});
-  const [loaded, setLoaded] = useState(false);
+  return (
+    <div
+      className="row d-flex carousel slide justify-content-center"
+      id="first-row"
+    >
+      <div className="col-xl-8 data">
+        <div className="carousel-inner">
+          <div className="carousel-item active">
+            <div className="d-flex mb-4">
+              <div className="col">
+                <div className="display-2">
+                  <span className="float-left" id="current-temp">
+                    {props.fetch.temp}°
+                  </span>
 
-  function fahrenheit(event) {
-    event.preventDefault();
-    setData((data.temp * 9) / 5 + 32);
-  }
-
-  function celsius(event) {
-    event.preventDefault();
-    setData(data.temp);
-  }
-
-  function fetchInfo(response) {
-    console.log(response.data);
-
-    setData({
-      temp: Math.round(response.data.main.temp),
-      humidity: Math.round(response.data.main.humidity),
-      windspeed: Math.round(response.data.wind.speed),
-      description: response.data.weather[0].description,
-      icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
-      date: new Date(response.data.dt * 1000),
-      city: response.data.name,
-    });
-
-    setLoaded(true);
-  }
-
-  if (loaded) {
-    return (
-      <div
-        className="row d-flex carousel slide justify-content-center"
-        id="first-row"
-      >
-        <div className="col-xl-8 data">
-          <div className="carousel-inner">
-            <div className="carousel-item active">
-              <div className="d-flex mb-4">
-                <div className="col">
-                  <div className="display-2">
-                    <span className="float-left" id="current-temp">
-                      {data.temp}°
-                    </span>
-
-                    <a
-                      className="float-left"
-                      id="temp-celsius"
-                      href="/"
-                      onClick={celsius}
-                    >
-                      {" "}
-                      C
-                    </a>
-                    <span id="separator"> | </span>
-                    <a
-                      className="float-left"
-                      id="temp-fahrenheit"
-                      href="/"
-                      onClick={fahrenheit}
-                    >
-                      {" "}
-                      F
-                    </a>
-                  </div>
-                  <Timestamp date={data.date} />
-                  <ul>
-                    <li id="city-info">{data.city}</li>
-                  </ul>
+                  <a className="float-left" id="temp-celsius" href="/">
+                    {" "}
+                    C
+                  </a>
+                  <span id="separator"> | </span>
+                  <a className="float-left" id="temp-fahrenheit" href="/">
+                    {" "}
+                    F
+                  </a>
                 </div>
-                <div className="col">
-                  <ul id="forecast-list">
-                    <li id="weather-icon">
-                      <img src={data.icon} alt="weather-icon" />
-                    </li>
-                    <li id="weather-description">{data.description}</li>
-                    <li id="wind-speed">Wind speed: {data.windspeed}km/h</li>
-                    <li id="current-hmidity">Humidity: {data.humidity}%</li>
-                  </ul>
-                </div>
+                <Timestamp date={props.fetch.date} />
+                <ul>
+                  <li id="city-info">{props.fetch.city}</li>
+                </ul>
+              </div>
+              <div className="col">
+                <ul id="forecast-list">
+                  <li id="weather-icon">
+                    <img src={props.fetch.icon} alt="weather-icon" />
+                  </li>
+                  <li id="weather-description">{props.fetch.description}</li>
+                  <li id="wind-speed">
+                    Wind speed: {props.fetch.windspeed}km/h
+                  </li>
+                  <li id="current-hmidity">
+                    Humidity: {props.fetch.humidity}%
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
         </div>
       </div>
-    );
-  } else {
-    const apiKey = `d67292210b7875b5cf04663144f38fa9`;
-    let city = "London";
-    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}
-    &appid=${apiKey}&units=metric`;
-    axios.get(url).then(fetchInfo);
-    return "Wait until information loads... Thank you.";
-  }
+    </div>
+  );
 }
