@@ -4,9 +4,9 @@ import Info from "./Info";
 import Forecast from "./Forecast";
 import "./Search.css";
 
-export default function Search() {
+export default function Search(props) {
   const [data, setData] = useState({ loaded: false });
-
+  const [city, setCity] = useState(props.defaultCity);
   function fetchInfo(response) {
     setData({
       loaded: true,
@@ -20,12 +20,28 @@ export default function Search() {
     });
   }
 
+  function search() {
+    const apiKey = `d67292210b7875b5cf04663144f38fa9`;
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}
+    &appid=${apiKey}&units=metric`;
+    axios.get(url).then(fetchInfo);
+  }
+
+  function searchSubmit(event) {
+    event.preventDefault();
+    search();
+  }
+
+  function cityUpdate(event) {
+    setCity(event.target.value);
+  }
+
   if (data.loaded) {
     return (
       <div className="infoContainer">
         <div className="row d-flex justify-content-center" id="first-row">
           <div className="col-sm-5 search-bar pb-4">
-            <form className="input-group rounded">
+            <form className="input-group rounded" onSubmit={searchSubmit}>
               <input
                 type="search"
                 className="form-control rounded"
@@ -33,6 +49,7 @@ export default function Search() {
                 placeholder="Enter a city or country"
                 aria-label="Search"
                 aria-describedby="button-addon2"
+                onChange={cityUpdate}
               />
               <button
                 class="btn search-button"
@@ -49,12 +66,6 @@ export default function Search() {
       </div>
     );
   } else {
-    const apiKey = `d67292210b7875b5cf04663144f38fa9`;
-    let city = "London";
-    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}
-    &appid=${apiKey}&units=metric`;
-    axios.get(url).then(fetchInfo);
-
-    return "Wait until information loads... Thank you.";
+    search();
   }
 }
