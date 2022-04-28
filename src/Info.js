@@ -1,6 +1,7 @@
 import React from "react";
 import "./Info.css";
 import Timestamp from "./Timestamp";
+import Temp from "./Temp";
 
 export default function Info(props) {
   return (
@@ -14,29 +15,23 @@ export default function Info(props) {
             <div className="d-flex mb-4">
               <div className="col">
                 <div className="display-2">
-                  <span className="float-left" id="current-temp">
-                    {props.fetch.temp}°
-                  </span>
-
-                  <a className="float-left" id="temp-celsius" href="/">
-                    {" "}
-                    C
-                  </a>
-                  <span id="separator"> | </span>
-                  <a className="float-left" id="temp-fahrenheit" href="/">
-                    {" "}
-                    F
-                  </a>
+                  <Temp celsius={props.fetch.temp} />
                 </div>
                 <Timestamp date={props.fetch.date} />
                 <ul>
-                  <li id="city-info">{props.fetch.city}</li>
+                  <li id="city-info">
+                    {props.fetch.city}, {props.fetch.country}
+                  </li>
                 </ul>
               </div>
               <div className="col">
                 <ul id="forecast-list">
                   <li id="weather-icon">
-                    <img src={props.fetch.icon} alt="weather-icon" />
+                    <img
+                      class="icon"
+                      src={props.fetch.icon}
+                      alt="weather-icon"
+                    />
                   </li>
                   <li id="weather-description">{props.fetch.description}</li>
                   <li id="wind-speed">

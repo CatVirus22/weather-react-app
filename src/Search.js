@@ -17,6 +17,7 @@ export default function Search(props) {
       icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
       date: new Date(response.data.dt * 1000),
       city: response.data.name,
+      country: response.data.sys.country,
     });
   }
 

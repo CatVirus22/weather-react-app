@@ -32,7 +32,7 @@ export default function Forecast() {
                   alt="weather-icon"
                 />
                 <p className="mb-0">
-                  <strong>Mon</strong>
+                  <strong>Sun</strong>
                 </p>
               </div>
               <div className="flex-column" id="daily-forecast-temps">
@@ -52,7 +52,7 @@ export default function Forecast() {
                   alt="weather-icon"
                 />
                 <p className="mb-0">
-                  <strong>Tue</strong>
+                  <strong>Mon</strong>
                 </p>
               </div>
               <div className="flex-column" id="daily-forecast-temps">
@@ -72,7 +72,7 @@ export default function Forecast() {
                   alt="weather-icon"
                 />
                 <p className="mb-0">
-                  <strong>Wen</strong>
+                  <strong>Tue</strong>
                 </p>
               </div>
               <div className="flex-column" id="daily-forecast-temps">
@@ -92,7 +92,7 @@ export default function Forecast() {
                   alt="weather-icon"
                 />
                 <p className="mb-0">
-                  <strong>Thu</strong>
+                  <strong>Wen</strong>
                 </p>
               </div>
               <div className="flex-column" id="daily-forecast-temps">
@@ -112,7 +112,7 @@ export default function Forecast() {
                   alt="weather-icon"
                 />
                 <p className="mb-0">
-                  <strong>Fri</strong>
+                  <strong>Thu</strong>
                 </p>
               </div>
               <div className="flex-column" id="daily-forecast-temps">
@@ -132,7 +132,7 @@ export default function Forecast() {
                   alt="weather-icon"
                 />
                 <p className="mb-0">
-                  <strong>Sat</strong>
+                  <strong>fri</strong>
                 </p>
               </div>
               <div className="flex-column" id="daily-forecast-temps">
@@ -152,7 +152,7 @@ export default function Forecast() {
                   alt="weather-icon"
                 />
                 <p className="mb-0">
-                  <strong>Sun</strong>
+                  <strong>Sat</strong>
                 </p>
               </div>
             </div>
