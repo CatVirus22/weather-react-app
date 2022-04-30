@@ -10,20 +10,6 @@ export default function Forecast(props) {
     let min = Math.round(props.fetch.min);
     return min;
   }
-  function day() {
-    let date = props.fetch.date.getDate();
-    let day = props.fetch.date.getDay();
-    let days = [
-      "Sunday",
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-    ];
-    return days[day];
-  }
 
   return (
     <div
