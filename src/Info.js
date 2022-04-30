@@ -28,7 +28,7 @@ export default function Info(props) {
                 <ul id="forecast-list">
                   <li id="weather-icon">
                     <img
-                      class="icon"
+                      className="icon"
                       src={props.fetch.icon}
                       alt="weather-icon"
                     />

@@ -18,7 +18,10 @@ export default function Search(props) {
       date: new Date(response.data.dt * 1000),
       city: response.data.name,
       country: response.data.sys.country,
+      max: Math.round(response.data.main.temp_max),
+      min: Math.round(response.data.main.temp_min),
     });
+    console.log(response.data);
   }
 
   function search() {
@@ -53,17 +56,17 @@ export default function Search(props) {
                 onChange={cityUpdate}
               />
               <button
-                class="btn search-button"
+                className="btn search-button"
                 type="submit"
                 id="button-addon2"
               >
-                <i class="fas fa-search"></i>
+                <i className="fas fa-search"></i>
               </button>
             </form>
           </div>
         </div>
         <Info fetch={data} />
-        <Forecast />
+        <Forecast fetch={data} />
       </div>
     );
   } else {
