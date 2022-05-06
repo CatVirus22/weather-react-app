@@ -20,6 +20,8 @@ export default function Search(props) {
       country: response.data.sys.country,
       max: Math.round(response.data.main.temp_max),
       min: Math.round(response.data.main.temp_min),
+      lat: response.data.coord.lat,
+      lon: response.data.coord.lon,
     });
     console.log(response.data);
   }
