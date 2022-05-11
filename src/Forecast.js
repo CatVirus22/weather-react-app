@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import "./Forecast.css";
 import axios from "axios";
+import DailyForecast from "./DailyForecast";
 
 export default function Forecast(props) {
-  const [forecast, setForecast] = useState({ loaded: false });
+  const [forecast, setForecast] = useState(false);
   const [info, setInfo] = useState();
   function handleResponse(response) {
     setInfo(response.data.daily);
@@ -14,12 +15,12 @@ export default function Forecast(props) {
   function forecastSearch() {
     let lat = props.fetch.lat;
     let lon = props.fetch.lon;
-    const apiKey = `d67292210b7875b5cf04663144f38fa9`;
+    const apiKey = `4640a78ace2d7c4dfd7fda800eef31e9`;
     let url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
     axios.get(url).then(handleResponse);
   }
 
-  if (forecast.loaded) {
+  if (forecast) {
     return (
       <div
         className="row d-flex carousel slide pt-4 justify-content-center"
@@ -33,27 +34,19 @@ export default function Forecast(props) {
                 className="d-flex justify-content-around text-center pb-3 pt-3"
                 id="daily-forecast-temps"
               >
-                <div className="flex-column" id="daily-forecast-temps">
-                  <div className="col">
-                    <span id="highest">
-                      <strong>{info[0].temp.max}°</strong>
-                    </span>
-                    <span>
-                      <strong className="separator"> - </strong>
-                    </span>
-                    <span id="lowest">
-                      <strong>{forecast[0].temp.max}°</strong>
-                    </span>
-                  </div>
-                  <img
-                    className="icon"
-                    src={info[0].weather[0].icon}
-                    alt="weather-icon"
-                  />
-                  <p className="mb-0">
-                    <strong>{info[0].dt}</strong>
-                  </p>
-                </div>
+                {info.map(function (dailyForecast, index) {
+                  if (index < 7) {
+                    return (
+                      <div
+                        className="flex-column"
+                        id="daily-forecast-temps"
+                        key={index}
+                      >
+                        <DailyForecast fetch={dailyForecast} />;
+                      </div>
+                    );
+                  }
+                })}
               </div>
             </div>
           </div>
