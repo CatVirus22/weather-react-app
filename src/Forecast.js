@@ -45,6 +45,8 @@ export default function Forecast(props) {
                         <DailyForecast fetch={dailyForecast} />;
                       </div>
                     );
+                  } else {
+                    return null;
                   }
                 })}
               </div>
