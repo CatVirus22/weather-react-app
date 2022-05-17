@@ -34,7 +34,7 @@ export default function DailyForecast(props) {
       </div>
       <img
         className="forecastIcon"
-        src={props.fetch.weather[0].icon}
+        src={`http://openweathermap.org/img/wn/${props.fetch.weather[0].icon}@2x.png`}
         alt="forecast-icon"
       />
       <p className="mb-0">

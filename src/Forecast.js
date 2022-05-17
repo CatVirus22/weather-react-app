@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Forecast.css";
 import axios from "axios";
 import DailyForecast from "./DailyForecast";
@@ -6,6 +6,11 @@ import DailyForecast from "./DailyForecast";
 export default function Forecast(props) {
   const [forecast, setForecast] = useState(false);
   const [info, setInfo] = useState();
+
+  useEffect(() => {
+    setForecast(false);
+  }, [props]);
+
   function handleResponse(response) {
     setInfo(response.data.daily);
     setForecast(true);
@@ -31,7 +36,7 @@ export default function Forecast(props) {
           <div className="carousel-inner">
             <div className="carousel-item active">
               <div
-                className="d-flex justify-content-around text-center pb-3 pt-3"
+                className="d-flex justify-content-around text-center pt-3"
                 id="daily-forecast-temps"
               >
                 {info.map(function (dailyForecast, index) {
