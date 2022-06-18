@@ -1,9 +1,7 @@
 import React from "react";
 import "./index.css";
 import "bootstrap/dist/css/bootstrap.css";
-
 import Search from "./Search";
-
 import Footer from "./Footer";
 
 export default function App() {
